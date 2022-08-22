@@ -44,18 +44,22 @@ function runCommand($step): int
 function runComposerCommands(array $afterComposerInstallSteps = []):void
 {
     configureTimezone();
+    configureAppDir();
+
+    $steps = array_merge(['composer i'], $afterComposerInstallSteps);
+    $steps[] = '/usr/local/bin/docker-php-entrypoint';
+    $steps[] = 'php-fpm';
+    runCommands($steps);
+}
+
+function configureAppDir()
+{
     $appDir = getRequiredEnvVariable('APP_DIR');
     if (!file_exists($appDir)) {
         throw new Exception('Folder APP_DIR=' . $appDir . ' does not exist');
     }
 
     chdir($appDir);
-
-    $steps[] = 'composer i';
-    $steps = array_merge($steps, $afterComposerInstallSteps);
-    $steps[] = '/usr/local/bin/docker-php-entrypoint';
-    $steps[] = 'php-fpm';
-    runCommands($steps);
 }
 
 function configureTimezone()
