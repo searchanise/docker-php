@@ -33,6 +33,7 @@ RUN set -eux; \
     libmagickwand-dev \
     libpng-dev \
     libzip-dev \
+    libxslt-dev \
     libenchant-2-dev \
     ; \
     docker-php-ext-configure gd \
@@ -43,6 +44,7 @@ RUN set -eux; \
     bcmath \
     enchant \
     exif \
+    xsl \
     gd \
     intl \
     mysqli \

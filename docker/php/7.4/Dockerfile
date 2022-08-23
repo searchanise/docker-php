@@ -33,6 +33,7 @@ RUN set -eux; \
     libmagickwand-dev \
     libpng-dev \
     libzip-dev \
+    libxslt-dev \
 # start enchant only:
     libhunspell-dev libglib2.0-dev gir1.2-gmodule-2.0 \
     ; \
@@ -52,6 +53,7 @@ RUN set -eux; \
     docker-php-ext-install -j "$(nproc)" \
     bcmath \
     exif \
+    xsl \
     gd \
     intl \
     mysqli \

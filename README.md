@@ -16,3 +16,6 @@ docker push searchanise/php:7.4-fpm
 docker push searchanise/php:8.0-fpm
 docker push searchanise/php:8.1-fpm
 ```
+
+List of available Docker PHP extensions:
+https://gist.github.com/hoandang/88bfb1e30805df6d1539640fc1719d12
